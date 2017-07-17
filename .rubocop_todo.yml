@@ -66,17 +66,6 @@ Security/Eval:
   Exclude:
     - 'node_modules/rails-erb-loader/erb_transformer.rb'
 
-# Offense count: 5
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/controllers/application_controller.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'app/mailers/application_mailer.rb'
-    - 'app/models/application_record.rb'
-    - 'config/application.rb'
-
 # Offense count: 2
 # Configuration parameters: AllowedVariables.
 Style/GlobalVars:
