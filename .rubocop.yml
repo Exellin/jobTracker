@@ -1,15 +1,40 @@
 inherit_from: .rubocop_todo.yml
 
 AllCops:
-  Excludes:
+  Exclude:
     - node_modules/**/*
+    - Guardfile
+    - db/schema.rb
+    - db/migrate/**
 
-# Offense count: 5
 Style/Documentation:
   Exclude:
     - 'spec/**/*'
     - 'app/controllers/*'
     - 'app/helpers/application_helper.rb'
     - 'app/mailers/application_mailer.rb'
-    - 'app/models/application_record.rb'
+    - 'app/models/*'
     - 'config/application.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
+Style/StringLiterals:
+  Exclude:
+    - 'Gemfile'
+    - 'bin/spring'
+    - 'bin/webpack'
+    - 'bin/webpack-dev-server'
+    - 'bin/yarn'
+    - 'config/application.rb'
+    - 'config/environments/production.rb'
+    - 'config/puma.rb'
+    - 'spec/rails_helper.rb'
