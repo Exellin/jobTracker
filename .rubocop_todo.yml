@@ -52,15 +52,6 @@ Style/PercentLiteralDelimiters:
   Exclude:
     - 'config/spring.rb'
 
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiteralsInInterpolation:
-  Exclude:
-    - 'bin/webpack-dev-server'
-    - 'bin/yarn'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: MinSize, SupportedStyles.
