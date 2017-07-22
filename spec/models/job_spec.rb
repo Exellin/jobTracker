@@ -88,14 +88,17 @@ RSpec.describe Job do
   end
 
   describe '#status' do
-    let(:statuses) { [:discovered, :applied, :followed_up, :no_interview, :interviewing, :no_offer_received, :offer_recieved] }
+    let(:statuses) do
+      [:discovered, :applied, :followed_up, :no_interview, :interviewing, :no_offer_received, :offer_recieved]
+    end
 
     it 'is invalid when nil' do
       expect(FactoryGirl.build(:job, status: nil)).not_to be_valid
     end
 
     it 'is invalid outside of the enumerable range' do
-      expect { FactoryGirl.build(:job, status: 7) }.to raise_error(ArgumentError).with_message("'7' is not a valid status")
+      expect { FactoryGirl.build(:job, status: 7) }.to raise_error(ArgumentError)
+        .with_message("'7' is not a valid status")
     end
 
     it 'has a default of discovered' do

@@ -1,5 +1,3 @@
-inherit_from: .rubocop_todo.yml
-
 AllCops:
   Exclude:
     - node_modules/**/*
@@ -11,6 +9,9 @@ Style/Documentation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
 
 Style/BlockLength:
   Exclude:
@@ -24,3 +25,14 @@ Style/BlockComments:
 Style/StringLiterals:
   Exclude:
     - 'bin/*'
+  
+Style/MutableConstant:
+  Exclude:
+    - 'bin/webpack-dev-server'
+
+# 112 is the longest line in rails generated files
+Metrics/LineLength:
+  Max: 112
+  Exclude:
+    - config/initializers/devise.rb
+    - 'bin/webpack-dev-server'
