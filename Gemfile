@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Use Angular Rails CSRF to create valid authenticity tokens from Angular
+gem 'angular_rails_csrf'
 # Dependency for devise_token_auth
 gem 'devise'
 # Use Devise_token_auth as the authentication solution
