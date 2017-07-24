@@ -1,1 +1,11 @@
-Login Component
+<form [formGroup]='logInForm' (ngSubmit)='submit(logInForm.value)'>
+  <md-input-container>
+    <input mdInput placeholder='email' formControlName='email'>
+  </md-input-container>
+
+  <md-input-container>
+    <input mdInput type='password' placeholder='password' formControlName='password'>
+  </md-input-container>
+  
+  <button md-raised-button type='submit' [disabled]='!logInForm.valid'>Log In</button>
+</form>

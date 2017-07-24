@@ -1,6 +1,9 @@
-<a routerLink='/login'>
+<a routerLink='/login' *ngIf='isLoggedOut()'>
   Login
 </a>
-<a routerLink='/register'>
+<a routerLink='/register' *ngIf='isLoggedOut()'>
   register
 </a>
+ <a routerLink='/' (click)='logOut()' *ngIf='isLoggedIn()'>
+  Log Out
+</a> 

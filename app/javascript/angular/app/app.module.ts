@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { Angular2TokenService } from 'angular2-token';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
@@ -21,7 +22,9 @@ import { AuthenticationModule } from './authentication/authentication.module';
     RoutingModule,
     AuthenticationModule
   ],
-  providers: [],
+  providers: [
+    Angular2TokenService
+  ],
   bootstrap: [AppComponent]
 })
 

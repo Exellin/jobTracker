@@ -1,1 +1,30 @@
-register component
+<form [formGroup]='registerForm' (ngSubmit)='submit(registerForm.value)'>
+  <md-input-container>
+    <input mdInput placeholder='email' formControlName='email'>
+    <md-error *ngIf="registerForm.controls.email.errors">
+      <div *ngFor="let error of (registerForm.controls.email.errors)">
+        {{ error }}
+      </div>
+    </md-error>
+  </md-input-container>
+
+  <md-input-container>
+    <input mdInput type='password' placeholder='password' formControlName='password'>
+      <md-error *ngIf="registerForm.controls.password.errors">
+        <div *ngFor="let error of (registerForm.controls.password.errors)">
+          {{ error }}
+        </div>
+    </md-error>
+  </md-input-container>
+
+  <md-input-container>
+    <input mdInput type='password' placeholder='password confirmation' formControlName='password_confirmation'>
+      <md-error *ngIf="registerForm.controls.password_confirmation.errors">
+        <div *ngFor="let error of (registerForm.controls.password_confirmation.errors)">
+          {{ error }}
+        </div>
+    </md-error>
+  </md-input-container>
+  
+  <button md-raised-button type='submit' [disabled]='!registerForm.valid'>Register</button>
+</form>
