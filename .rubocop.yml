@@ -13,7 +13,7 @@ Style/FrozenStringLiteralComment:
 Style/SymbolArray:
   EnforcedStyle: brackets
 
-Style/BlockLength:
+Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
     - Guardfile
