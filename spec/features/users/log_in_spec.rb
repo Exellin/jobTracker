@@ -16,7 +16,7 @@ RSpec.feature 'Users logging in', js: true do
     end
 
     scenario 'logs the user in' do
-      expect(page).to have_link('Log Out')
+      expect(page).to have_button('Log Out')
     end
 
     scenario 'shows a message saying the user was logged in' do

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import templateString from './navbar.component.html';
+import './navbar.component.scss'
 
 import { AuthenticationService } from '../authentication/authentication.service'
 

@@ -1,0 +1,10 @@
+navbar{
+  .fill-remaining-space {
+    flex: 1 1 auto;
+  }
+  
+  .active {
+    border-bottom: 1px solid black;
+  }
+}
+

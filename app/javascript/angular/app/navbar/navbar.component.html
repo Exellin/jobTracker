@@ -1,9 +1,15 @@
-<a routerLink='/login' *ngIf='isLoggedOut()'>
-  Log In
-</a>
-<a routerLink='/register' *ngIf='isLoggedOut()'>
-  Register
-</a>
-<a routerLink='/' (click)='logOut()' *ngIf='isLoggedIn()'>
-  Log Out
-</a>
+<md-toolbar color='primary'>
+  <a md-button [routerLinkActive]="['active']" [routerLinkActiveOptions]='{exact:true}' routerLink ='/'>
+    Job Tracker
+  </a>
+  <span class="fill-remaining-space"></span>
+  <a md-button [routerLinkActive]="['active']" [routerLinkActiveOptions]='{exact:true}' routerLink='/login' *ngIf='isLoggedOut()'>
+    Log In
+  </a>
+  <a md-button [routerLinkActive]="['active']" [routerLinkActiveOptions]='{exact:true}' routerLink='/register' *ngIf='isLoggedOut()'>
+    Register
+  </a>
+  <button md-button routerLink='/' (click)='logOut()' *ngIf='isLoggedIn()'>
+    Log Out
+  </button>
+</md-toolbar>

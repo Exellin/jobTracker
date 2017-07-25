@@ -7,7 +7,7 @@ RSpec.feature 'Users log out', js: true do
     login_as(user)
     visit '/'
     expect(page).to have_content('Log Out')
-    click_link 'Log Out'
+    click_button 'Log Out'
     expect(page).to have_content('You have successfully signed out')
     expect(page).not_to have_link('Log Out')
   end
