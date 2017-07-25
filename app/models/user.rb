@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   before_create :skip_confirmation
 
   def skip_confirmation
-    self.skip_confirmation!
+    skip_confirmation!
   end
 end
