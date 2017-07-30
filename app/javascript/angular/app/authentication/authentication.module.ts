@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthenticationService } from './authentication.service';
+import { LoggedInGuard } from './logged-in.guard'
+import { LoggedOutGuard } from './logged-out.guard'
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { AuthenticationService } from './authentication.service';
   ],
   providers: [
     Angular2TokenService,
-    AuthenticationService
+    AuthenticationService,
+    LoggedInGuard,
+    LoggedOutGuard
   ],
   imports: [
     CommonModule,

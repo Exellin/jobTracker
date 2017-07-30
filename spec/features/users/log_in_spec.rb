@@ -5,11 +5,11 @@ RSpec.feature 'Users logging in', js: true do
 
   before do
     visit '/'
-    click_link 'Log In'
   end
 
   feature 'with valid credentials' do
     before do
+      click_link 'Log In'
       fill_in 'email', with: user.email
       fill_in 'password', with: user.password
       click_button 'Log In'
@@ -26,6 +26,7 @@ RSpec.feature 'Users logging in', js: true do
 
   feature 'with invalid credentials' do
     before do
+      click_link 'Log In'
       fill_in 'email', with: 'wrong_email@test.com'
       fill_in 'password', with: 'wrong_password'
       click_button 'Log In'
@@ -38,5 +39,14 @@ RSpec.feature 'Users logging in', js: true do
     scenario 'shows a message saying why the log in was not successful' do
       expect(page).to have_content('Invalid login credentials. Please try again')
     end
+  end
+
+  feature 'as a logged in user ' do
+    before do
+      login_as(user)
+      visit '/login'
+    end
+
+    already_logged_in
   end
 end

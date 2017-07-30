@@ -2,15 +2,16 @@ require 'rails_helper'
 
 RSpec.feature 'Users registering', js: true do
   let(:user) { FactoryGirl.build(:user) }
+  let(:created_user) { FactoryGirl.create(:user) }
   let!(:original_user_count) { User.count }
 
   before do
     visit '/'
-    click_link 'Register'
   end
 
   feature 'with valid credentials' do
     before do
+      click_link 'Register'
       fill_in 'email', with: user.email
       fill_in 'password', with: user.password
       fill_in 'password confirmation', with: user.password
@@ -35,6 +36,7 @@ RSpec.feature 'Users registering', js: true do
 
   feature 'with invalid credentials' do
     before do
+      click_link 'Register'
       fill_in 'email', with: 'an_invalid_email'
       fill_in 'password', with: 'short'
       fill_in 'password confirmation', with: 'not_matching_password'
@@ -51,5 +53,14 @@ RSpec.feature 'Users registering', js: true do
       expect(page).to have_content('password is too short (minimum is 8 characters)')
       expect(page).to have_content("password confirmation doesn't match Password")
     end
+  end
+
+  feature 'as a logged in user' do
+    before do
+      login_as(created_user)
+      visit '/login'
+    end
+
+    already_logged_in
   end
 end
