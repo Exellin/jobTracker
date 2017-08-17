@@ -7,9 +7,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthenticationService } from './authentication.service';
-import { LoggedInGuard } from './logged-in.guard'
-import { LoggedOutGuard } from './logged-out.guard'
-import { InputFieldComponent } from '../shared/input-field/input-field.component'
+import { LoggedInGuard } from './logged-in.guard';
+import { LoggedOutGuard } from './logged-out.guard';
+import { InputFieldComponent } from '../shared/input-field/input-field.component';
 
 @NgModule({
   declarations: [

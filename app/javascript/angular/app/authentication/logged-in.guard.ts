@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate } from '@angular/router'
-import { AuthenticationService } from '../authentication/authentication.service'
+import { Router, CanActivate } from '@angular/router';
+import { AuthenticationService } from '../authentication/authentication.service';
 import { MdSnackBar } from '@angular/material';
 
 @Injectable()
@@ -14,7 +14,7 @@ export class LoggedInGuard implements CanActivate {
 
   canActivate() {
     if (this.authService.isLoggedIn()) {
-      return true
+      return true;
     } else {
       this.snackBar.open('You need to log in to visit this page', 'Close', {
         duration: 2000

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MdSnackBar } from '@angular/material';
 
-import { AuthenticationService } from '../authentication.service'
+import { AuthenticationService } from '../authentication.service';
 import templateString from './login.component.html';
 
 @Component({

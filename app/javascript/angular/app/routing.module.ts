@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core'
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './authentication/login/login.component'
-import { RegisterComponent } from './authentication/register/register.component'
-import { LoggedInGuard } from './authentication/logged-in.guard'
-import { LoggedOutGuard } from './authentication/logged-out.guard'
+import { LoginComponent } from './authentication/login/login.component';
+import { RegisterComponent } from './authentication/register/register.component';
+import { LoggedInGuard } from './authentication/logged-in.guard';
+import { LoggedOutGuard } from './authentication/logged-out.guard';
 
 const routes: Routes = [
  { path: 'login', component: LoginComponent, canActivate: [LoggedOutGuard] },
