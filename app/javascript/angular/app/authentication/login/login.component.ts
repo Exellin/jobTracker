@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MdSnackBar } from '@angular/material';
-import templateString from './login.component.html';
+
 import { AuthenticationService } from '../authentication.service'
+import templateString from './login.component.html';
 
 @Component({
   template: templateString
 })
 
 export class LoginComponent implements OnInit {
-  logInForm;
+  logInForm: FormGroup;
 
   constructor(
     private authService: AuthenticationService,

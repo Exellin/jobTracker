@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
+
 import templateString from './app.component.html';
 import './app.component.scss';
 
