@@ -1,0 +1,8 @@
+<md-input-container>
+  <input mdInput type={{type}} placeholder={{placeholder}} [formControl]='control'>
+  <md-error *ngIf='control.errors'>
+    <div *ngFor='let error of control.errors'>
+      {{ error }}
+    </div>
+  </md-error> 
+</md-input-container>

@@ -1,30 +1,21 @@
 <form [formGroup]='registerForm' (ngSubmit)='submit(registerForm.value)'>
-  <md-input-container>
-    <input mdInput placeholder='email' formControlName='email'>
-    <md-error *ngIf="registerForm.controls.email.errors">
-      <div *ngFor="let error of (registerForm.controls.email.errors)">
-        {{ error }}
-      </div>
-    </md-error>
-  </md-input-container>
+  <input-field
+    [type]="'email'"
+    [placeholder]="'email'"
+    [control]='registerForm.controls.email'>
+  </input-field>
 
-  <md-input-container>
-    <input mdInput type='password' placeholder='password' formControlName='password'>
-      <md-error *ngIf="registerForm.controls.password.errors">
-        <div *ngFor="let error of (registerForm.controls.password.errors)">
-          {{ error }}
-        </div>
-    </md-error>
-  </md-input-container>
+  <input-field
+    [type]="'password'"
+    [placeholder]="'password'"
+    [control]='registerForm.controls.password'>
+  </input-field>
 
-  <md-input-container>
-    <input mdInput type='password' placeholder='password confirmation' formControlName='password_confirmation'>
-      <md-error *ngIf="registerForm.controls.password_confirmation.errors">
-        <div *ngFor="let error of (registerForm.controls.password_confirmation.errors)">
-          {{ error }}
-        </div>
-    </md-error>
-  </md-input-container>
+  <input-field
+    [type]="'password'"
+    [placeholder]="'password confirmation'"
+    [control]='registerForm.controls.password_confirmation'>
+  </input-field>
   
   <button md-raised-button type='submit' [disabled]='!registerForm.valid'>Register</button>
 </form>
