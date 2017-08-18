@@ -13,6 +13,8 @@ class Job < ApplicationRecord
   enum status: [:discovered, :applied, :followed_up, :no_interview,
                 :interviewing, :no_offer_received, :offer_recieved]
 
+  belongs_to :user
+
   after_initialize :init
 
   def init

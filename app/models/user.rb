@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   include DeviseTokenAuth::Concerns::User
 
+  has_many :jobs
+
   before_create :skip_confirmation
 
   def skip_confirmation

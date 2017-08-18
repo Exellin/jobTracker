@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Job do
+  let(:job) { FactoryGirl.build(:job) }
+
   it 'has a valid factory' do
-    expect(FactoryGirl.build(:job)).to be_valid
+    expect(job).to be_valid
   end
 
   describe '#title' do
@@ -138,6 +140,17 @@ RSpec.describe Job do
 
     it 'is invalid when over 5000 characters' do
       expect(FactoryGirl.build(:job, description: Faker::Lorem.characters(5001))).not_to be_valid
+    end
+  end
+
+  describe '#user' do
+    it 'is invalid when nil' do
+      expect(FactoryGirl.build(:job, user: nil)).not_to be_valid
+    end
+
+    it 'returns the user the jobs are owned by' do
+      user = FactoryGirl.create(:user, jobs: [job])
+      expect(job.user).to eq(user)
     end
   end
 end
