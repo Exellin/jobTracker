@@ -9,13 +9,12 @@ import { RegisterComponent } from './register/register.component';
 import { AuthenticationService } from './authentication.service';
 import { LoggedInGuard } from './logged-in.guard';
 import { LoggedOutGuard } from './logged-out.guard';
-import { InputFieldComponent } from '../shared/input-field/input-field.component';
+import { SharedModule } from '../shared/shared.module'
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
-    InputFieldComponent
   ],
   providers: [
     Angular2TokenService,
@@ -26,7 +25,8 @@ import { InputFieldComponent } from '../shared/input-field/input-field.component
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 
