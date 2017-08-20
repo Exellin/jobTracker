@@ -1,0 +1,63 @@
+<form [formGroup]='createJobForm' (ngSubmit)='submit(createJobForm.value)'>
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Title of Job Position'"
+    [control]='createJobForm.controls.title'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Company Name'"
+    [control]='createJobForm.controls.company'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Company Url'"
+    [control]='createJobForm.controls.company_url'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Application Url'"
+    [control]='createJobForm.controls.application_url'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Point of Contact'"
+    [control]='createJobForm.controls.point_of_contact'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Date Posted'"
+    [control]='createJobForm.controls.date_posted'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Date Applied'"
+    [control]='createJobForm.controls.date_applied'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Status'"
+    [control]='createJobForm.controls.status'>
+  </input-field>
+    
+  <input-field
+    [format]="'textArea'"
+    [placeholder]="'Description'"
+    [control]='createJobForm.controls.description'>
+  </input-field>
+
+  <input-field
+    [format]="'textArea'"
+    [placeholder]="'Cover letter'"
+    [control]='createJobForm.controls.cover_letter'>
+  </input-field>
+
+  <button md-raised-button type='submit' [disabled]='!createJobForm.valid'>Submit</button>
+</form>

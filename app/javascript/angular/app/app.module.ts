@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RoutingModule } from './routing.module';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { JobsModule } from './jobs/jobs.module'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthenticationModule } from './authentication/authentication.module';
     HttpModule,
     MaterialModule,
     RoutingModule,
-    AuthenticationModule
+    AuthenticationModule,
+    JobsModule
   ],
   providers: [
     Angular2TokenService

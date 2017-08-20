@@ -6,7 +6,7 @@ import templateString from './input-field.component.html';
 @Component({
   selector: 'input-field',
   template: templateString,
-  inputs: ['type', 'placeholder', 'control']
+  inputs: ['type', 'placeholder', 'control', 'format']
 })
 
 export class InputFieldComponent {}

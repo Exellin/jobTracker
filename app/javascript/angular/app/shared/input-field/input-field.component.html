@@ -1,5 +1,6 @@
 <md-input-container>
-  <input mdInput type={{type}} placeholder={{placeholder}} [formControl]='control'>
+  <textarea *ngIf="format==='textArea'" mdInput placeholder={{placeholder}} [formControl]='control'></textarea>
+  <input *ngIf='!format' mdInput type={{type}} placeholder={{placeholder}} [formControl]='control'>
   <md-error *ngIf='control.errors'>
     <div *ngFor='let error of control.errors'>
       {{ error }}
