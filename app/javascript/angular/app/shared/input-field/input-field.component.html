@@ -1,4 +1,4 @@
-<md-input-container>
+<md-input-container *ngIf="format!='datePicker'" >
   <textarea *ngIf="format==='textArea'" mdInput placeholder={{placeholder}} [formControl]='control'></textarea>
   <input *ngIf='!format' mdInput type={{type}} placeholder={{placeholder}} [formControl]='control'>
   <md-error *ngIf='control.errors'>
@@ -6,4 +6,16 @@
       {{ error }}
     </div>
   </md-error> 
+</md-input-container>
+
+<!-- datePicker needs its own block as md-datepicker doesn't work with the ngIf directive -->
+<md-input-container *ngIf="format==='datePicker'" >
+  <input mdInput type={{type}} [mdDatepicker]='picker' placeholder={{placeholder}} [formControl]='control'>
+  <button mdSuffix [mdDatepickerToggle]='picker'></button>
+  <md-error *ngIf='control.errors'>
+    <div *ngFor='let error of control.errors'>
+      {{ error }}
+    </div>
+  </md-error> 
+  <md-datepicker #picker></md-datepicker>
 </md-input-container>
