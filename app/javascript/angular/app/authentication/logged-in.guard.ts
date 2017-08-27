@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { MdSnackBar } from '@angular/material';
 
@@ -12,7 +12,7 @@ export class LoggedInGuard implements CanActivate {
               private snackBar: MdSnackBar
   ) {}
 
-  canActivate() {
+  public canActivate(): boolean {
     if (this.authService.isLoggedIn()) {
       return true;
     } else {

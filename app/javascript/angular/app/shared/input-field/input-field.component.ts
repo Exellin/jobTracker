@@ -4,9 +4,9 @@ import { FormControl } from '@angular/forms';
 import templateString from './input-field.component.html';
 
 @Component({
+  inputs: ['type', 'placeholder', 'control', 'format'],
   selector: 'input-field',
-  template: templateString,
-  inputs: ['type', 'placeholder', 'control', 'format']
+  template: templateString
 })
 
 export class InputFieldComponent {}

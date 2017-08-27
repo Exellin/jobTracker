@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MdSnackBar } from '@angular/material';
 
@@ -11,7 +11,7 @@ import templateString from './register.component.html';
 })
 
 export class RegisterComponent implements OnInit {
-  registerForm: FormGroup;
+  public registerForm: FormGroup;
 
   constructor(
     private authService: AuthenticationService,
@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     private snackBar: MdSnackBar
   ) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       email: this.formBuilder.control(''),
       password: this.formBuilder.control(''),
@@ -28,22 +28,22 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  submit(value: any) {
+  public submit(value: any): void {
     this.authService.register(value.email, value.password, value.password_confirmation).subscribe(
-      res => {
+      (res: any) => {
         this.snackBar.open(`You have successfully registered`, 'Close', {
           duration: 2000
         });
         this.router.navigate(['/']);
       },
-      err => {
-        let parsed_errors = JSON.parse(err._body).errors;
-        for (let attribute in this.registerForm.controls) {
-          if (parsed_errors[attribute]) {
-            this.registerForm.controls[attribute].setErrors(parsed_errors[attribute]);
+      (err: any) => {
+        const parsedErrors: string[] = JSON.parse(err._body).errors;
+        for (const attribute in this.registerForm.controls) {
+          if (parsedErrors[attribute]) {
+            this.registerForm.controls[attribute].setErrors(parsedErrors[attribute]);
           }
         }
-        this.registerForm.setErrors(parsed_errors);
+        this.registerForm.setErrors(parsedErrors);
       }
     );
   }

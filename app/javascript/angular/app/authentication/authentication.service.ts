@@ -12,26 +12,23 @@ export class AuthenticationService {
     private snackBar: MdSnackBar
   ) {}
 
-  logIn(email: string, password: string): Observable<Response> {
-    return this.tokenService.signIn({ email: email,
-                                      password: password });
+  public logIn(email: string, password: string): Observable<Response> {
+    return this.tokenService.signIn({ email, password });
   }
 
-  register(email: string, password: string, password_confirmation: string): Observable<Response> {
-    return this.tokenService.registerAccount({ email: email,
-                                               password: password,
-                                               passwordConfirmation: password_confirmation });
+  public register(email: string, password: string, passwordConfirmation: string): Observable<Response> {
+    return this.tokenService.registerAccount({ email, password, passwordConfirmation });
   }
 
-  isLoggedIn(): boolean {
+  public isLoggedIn(): boolean {
     return this.tokenService.userSignedIn();
   }
 
-  isLoggedOut(): boolean {
+  public isLoggedOut(): boolean {
     return !this.tokenService.userSignedIn();
   }
 
-  logOut(): void {
+  public logOut(): void {
     this.tokenService.signOut();
     this.snackBar.open('You have successfully signed out', 'Close', {
       duration: 2000

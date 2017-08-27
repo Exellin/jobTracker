@@ -1,9 +1,16 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
-    ],
-    "jsRules": {},
-    "rules": {},
-    "rulesDirectory": []
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "quotemark": [true, "single"],
+    "trailing-comma": [true, {"multiline": "never", "singleline": "never"}],
+    "ordered-imports": [true, {"import-sources-order": "any", "named-imports-order": "case-insensitive"}],
+    "typedef": [true, "call-signature", "parameter", "arrow-parameter", "property-declaration", 
+                      "variable-declaration", "member-variable-declaration"],
+    "no-empty": false
+  },
+  "rulesDirectory": []
 }

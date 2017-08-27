@@ -10,9 +10,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RoutingModule } from './routing.module';
 import { AuthenticationModule } from './authentication/authentication.module';
-import { JobsModule } from './jobs/jobs.module'
+import { JobsModule } from './jobs/jobs.module';
 
 @NgModule({
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     NavbarComponent
@@ -28,8 +29,7 @@ import { JobsModule } from './jobs/jobs.module'
   ],
   providers: [
     Angular2TokenService
-  ],
-  bootstrap: [AppComponent]
+  ]
 })
 
 export class AppModule {}

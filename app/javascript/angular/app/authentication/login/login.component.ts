@@ -11,7 +11,7 @@ import templateString from './login.component.html';
 })
 
 export class LoginComponent implements OnInit {
-  logInForm: FormGroup;
+  public logInForm: FormGroup;
 
   constructor(
     private authService: AuthenticationService,
@@ -20,26 +20,26 @@ export class LoginComponent implements OnInit {
     private snackBar: MdSnackBar
   ) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.logInForm = this.formBuilder.group({
       email: this.formBuilder.control(''),
       password: this.formBuilder.control('')
     });
   }
 
-  submit(value: any) {
+  public submit(value: any): void {
     this.authService.logIn(value.email, value.password).subscribe(
-      res => {
+      (res: any) => {
         this.snackBar.open('You have successfully logged in', 'Close', {
           duration: 2000
         });
         this.router.navigate(['/']);
       },
-      err => {
+      (err: any) => {
         this.snackBar.open('Invalid login credentials. Please try again', 'Close', {
           duration: 2000
         });
       }
-    )
+    );
   }
 }

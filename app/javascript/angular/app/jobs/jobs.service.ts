@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 export class JobsService {
   constructor(private http: Http) {}
 
-  createJob(job): Observable<void> {
-    return this.http.post('jobs', job).map(res => {});
+  public createJob(job: any): Observable<void> {
+    return this.http.post('jobs', job).map((res: any) => {});
   }
 }

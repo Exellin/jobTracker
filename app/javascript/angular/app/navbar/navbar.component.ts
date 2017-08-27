@@ -12,15 +12,15 @@ import './navbar.component.scss';
 export class NavbarComponent {
   constructor(private authService: AuthenticationService) {}
 
-  isLoggedIn(): boolean {
+  public isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
   }
 
-  isLoggedOut(): boolean {
+  public isLoggedOut(): boolean {
     return this.authService.isLoggedOut();
   }
 
-  logOut(): void {
+  public logOut(): void {
     this.authService.logOut();
   }
 }

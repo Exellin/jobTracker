@@ -5,20 +5,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { JobsService } from './jobs.service';
 import { CreateJobFormComponent } from './create-job-form/create-job-form.component';
-import { SharedModule } from '../shared/shared.module'
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
-    CreateJobFormComponent,
-  ],
-  providers: [
-    JobsService
+    CreateJobFormComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    SharedModule]
+    SharedModule],
+  providers: [
+    JobsService
+  ]
 })
 
 export class JobsModule {}
