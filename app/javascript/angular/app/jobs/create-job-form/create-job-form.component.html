@@ -43,12 +43,12 @@
     [control]='createJobForm.controls.date_applied'>
   </input-field>
 
-  <input-field
-    [type]="'text'"
-    [placeholder]="'Status'"
-    [control]='createJobForm.controls.status'>
-  </input-field>
-    
+  <md-select placeholder='Status' [formControl]='createJobForm.controls.status' floatPlaceholder='always'>
+    <md-option *ngFor='let status of statuses' [value]='status.value'>
+      {{status.viewValue}}
+    </md-option>
+  </md-select>
+
   <input-field
     [format]="'textArea'"
     [placeholder]="'Description'"

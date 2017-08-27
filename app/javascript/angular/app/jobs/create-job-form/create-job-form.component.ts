@@ -14,9 +14,19 @@ import templateString from './create-job-form.component.html';
 export class CreateJobFormComponent implements OnInit {
   public createJobForm: FormGroup;
 
+  public statuses: Array<{value: string, viewValue: string}> = [
+    {value: 'discovered', viewValue: 'discovered'},
+    {value: 'applied', viewValue: 'applied'},
+    {value: 'followed_up', viewValue: 'followed up'},
+    {value: 'no_interview', viewValue: 'no interview'},
+    {value: 'interviewing', viewValue: 'interviewing'},
+    {value: 'no_offer_received', viewValue: 'no offer received'},
+    {value: 'offer_recieved', viewValue: 'offer recieved'}
+  ];
+
   constructor(
     private formBuilder: FormBuilder,
-    private jobService: JobsService,
+    private jobsService: JobsService,
     private router: Router,
     private snackBar: MdSnackBar,
     private tokenService: Angular2TokenService
@@ -32,14 +42,14 @@ export class CreateJobFormComponent implements OnInit {
       date_posted: this.formBuilder.control(''),
       description: this.formBuilder.control(''),
       point_of_contact: this.formBuilder.control(''),
-      status: this.formBuilder.control(''),
+      status: this.formBuilder.control('discovered'),
       title: this.formBuilder.control('')
     });
   }
 
   public submit(job: any): void {
     job.user_id = this.tokenService.currentUserData.id;
-    this.jobService.createJob(job).subscribe (
+    this.jobsService.createJob(job).subscribe (
       (res: any) => {
         this.snackBar.open('You have successfully created a job', 'Close', {
           duration: 2000
