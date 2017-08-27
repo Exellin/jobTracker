@@ -58,4 +58,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.before(:suite) do
+    system 'RAILS_ENV=test ./bin/rails webpacker:compile'
+  end
 end
