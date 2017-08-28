@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -10,5 +10,11 @@ export class JobsService {
 
   public createJob(job: any): Observable<void> {
     return this.http.post('api/jobs', job).map((res: any) => {});
+  }
+
+  public indexJobs(userId: number): Observable<void> {
+    const searchParams: URLSearchParams = new URLSearchParams();
+    searchParams.append('user_id', userId.toString());
+    return this.http.get('api/jobs', { search: searchParams }).map((res: any) => res.json());
   }
 }

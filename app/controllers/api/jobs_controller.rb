@@ -1,5 +1,13 @@
 module Api
   class JobsController < ApplicationController
+
+    def index
+      user = User.find(params[:user_id])
+      render json: {
+        status: 'success', data: user.jobs
+      }, status: :ok
+    end
+
     def create
       job = Job.new(job_params)
       if job.save
