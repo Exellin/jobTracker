@@ -9,6 +9,6 @@ export class JobsService {
   constructor(private http: Http) {}
 
   public createJob(job: any): Observable<void> {
-    return this.http.post('jobs', job).map((res: any) => {});
+    return this.http.post('api/jobs', job).map((res: any) => {});
   }
 }
