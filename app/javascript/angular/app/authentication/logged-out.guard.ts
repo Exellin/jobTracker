@@ -17,7 +17,7 @@ export class LoggedOutGuard implements CanActivate {
       return true;
     } else {
       this.snackBar.open('You are already logged in', 'Close', {
-        duration: 2000
+        duration: 5000
       });
       this.router.navigate(['/']);
       return false;

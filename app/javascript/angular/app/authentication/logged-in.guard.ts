@@ -17,7 +17,7 @@ export class LoggedInGuard implements CanActivate {
       return true;
     } else {
       this.snackBar.open('You need to log in to visit this page', 'Close', {
-        duration: 2000
+        duration: 5000
       });
       this.router.navigate(['/login']);
       return false;

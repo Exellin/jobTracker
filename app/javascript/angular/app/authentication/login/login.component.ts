@@ -31,13 +31,13 @@ export class LoginComponent implements OnInit {
     this.authService.logIn(value.email, value.password).subscribe(
       (res: any) => {
         this.snackBar.open('You have successfully logged in', 'Close', {
-          duration: 2000
+          duration: 5000
         });
         this.router.navigate(['/']);
       },
       (err: any) => {
         this.snackBar.open('Invalid login credentials. Please try again', 'Close', {
-          duration: 2000
+          duration: 5000
         });
       }
     );

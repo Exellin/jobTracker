@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(value.email, value.password, value.password_confirmation).subscribe(
       (res: any) => {
         this.snackBar.open(`You have successfully registered`, 'Close', {
-          duration: 2000
+          duration: 5000
         });
         this.router.navigate(['/']);
       },

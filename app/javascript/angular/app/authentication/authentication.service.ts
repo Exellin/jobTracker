@@ -31,7 +31,7 @@ export class AuthenticationService {
   public logOut(): void {
     this.tokenService.signOut();
     this.snackBar.open('You have successfully signed out', 'Close', {
-      duration: 2000
+      duration: 5000
     });
   }
 }

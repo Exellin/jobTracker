@@ -52,7 +52,7 @@ export class CreateJobFormComponent implements OnInit {
     this.jobsService.createJob(job).subscribe (
       (res: any) => {
         this.snackBar.open('You have successfully created a job', 'Close', {
-          duration: 2000
+          duration: 5000
         });
       },
       (err: any) => {

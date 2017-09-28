@@ -26,7 +26,7 @@ export class JobIndexComponent implements OnInit {
       },
       (err: any) => {
         this.snackBar.open('Unable to validate user token', 'Close', {
-          duration: 2000
+          duration: 5000
         });
       }
     );
@@ -39,7 +39,7 @@ export class JobIndexComponent implements OnInit {
       },
       (err: any) => {
         this.snackBar.open('Unable to retrieve jobs', 'Close', {
-          duration: 2000
+          duration: 5000
         });
       }
     );
