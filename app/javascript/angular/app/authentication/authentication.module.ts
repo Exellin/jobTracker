@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Angular2TokenService } from 'angular2-token';
-import { MaterialModule } from '@angular/material';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { LoginComponent } from './login/login.component';
@@ -18,7 +19,8 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    MaterialModule,
+    MatSnackBarModule,
+    MatButtonModule,
     ReactiveFormsModule,
     SharedModule
   ],

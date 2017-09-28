@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { JobsService } from './jobs.service';
@@ -15,8 +16,9 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    MaterialModule,
     ReactiveFormsModule,
+    MatSelectModule,
+    MatButtonModule,
     SharedModule],
   providers: [
     JobsService

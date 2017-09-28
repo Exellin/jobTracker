@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MdNativeDateModule } from '@angular/material/core';
 import { Angular2TokenService } from 'angular2-token';
 import 'hammerjs';
 
@@ -22,7 +24,9 @@ import { JobsModule } from './jobs/jobs.module';
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
-    MaterialModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MdNativeDateModule,
     RoutingModule,
     AuthenticationModule,
     JobsModule
