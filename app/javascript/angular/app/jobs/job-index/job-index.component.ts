@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
 import { MdSnackBar } from '@angular/material';
+import { DataSource } from '@angular/cdk/collections';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 import { JobsService } from '../jobs.service';
 import templateString from './job-index.component.html';
@@ -10,7 +13,9 @@ import templateString from './job-index.component.html';
 })
 
 export class JobIndexComponent implements OnInit {
-  private jobs: any[];
+  public dataSource: BindDataTableSource | null;
+  public jobs: any[];
+  private displayedColumns: string[] = ['title', 'company', 'status'];
 
   constructor(
     private jobsService: JobsService,
@@ -36,6 +41,7 @@ export class JobIndexComponent implements OnInit {
     this.jobsService.indexJobs(userId).subscribe(
       (res: any) => {
         this.jobs = res.data;
+        this.dataSource = new BindDataTableSource(this);
       },
       (err: any) => {
         this.snackBar.open('Unable to retrieve jobs', 'Close', {
@@ -44,4 +50,17 @@ export class JobIndexComponent implements OnInit {
       }
     );
   }
+}
+
+/* tslint:disable max-classes-per-file */
+export class BindDataTableSource extends DataSource<any> {
+  constructor(private jobIndex: JobIndexComponent) {
+    super();
+  }
+
+  public connect(): Observable<any> {
+    return Observable.of(this.jobIndex.jobs);
+  }
+
+  public disconnect(): void {}
 }

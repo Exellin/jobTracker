@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { JobsService } from './jobs.service';
@@ -19,6 +20,7 @@ import { SharedModule } from '../shared/shared.module';
     ReactiveFormsModule,
     MatSelectModule,
     MatButtonModule,
+    MatTableModule,
     SharedModule],
   providers: [
     JobsService
