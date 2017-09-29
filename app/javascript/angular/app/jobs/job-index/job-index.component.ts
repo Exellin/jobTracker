@@ -52,23 +52,25 @@ export class JobIndexComponent implements OnInit {
   }
 
   private deleteJob(job: any): void {
-    this.jobsService.deleteJob(job.id).subscribe(
-      (res: any) => {
-        this.snackBar.open('Job successfully deleted', 'Close', {
-          duration: 5000
-        });
-        const index: number = this.jobs.findIndex((foundJob: any) => {
-          return foundJob.id === job.id;
-        });
-        this.jobs.splice(index, 1);
-        this.dataSource = new BindDataTableSource(this);
-      },
-      (err: any) => {
-        this.snackBar.open('Unable to delete job', 'Close', {
-          duration: 5000
-        });
-      }
-    );
+    if (confirm(`Are you sure you want to delete ${job.title} from ${job.company}`)) {
+      this.jobsService.deleteJob(job.id).subscribe(
+        (res: any) => {
+          this.snackBar.open('Job successfully deleted', 'Close', {
+            duration: 5000
+          });
+          const index: number = this.jobs.findIndex((foundJob: any) => {
+            return foundJob.id === job.id;
+          });
+          this.jobs.splice(index, 1);
+          this.dataSource = new BindDataTableSource(this);
+        },
+        (err: any) => {
+          this.snackBar.open('Unable to delete job', 'Close', {
+            duration: 5000
+          });
+        }
+      );
+    }
   }
 }
 
