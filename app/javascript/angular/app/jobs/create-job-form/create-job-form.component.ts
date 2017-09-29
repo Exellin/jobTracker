@@ -48,7 +48,20 @@ export class CreateJobFormComponent implements OnInit {
   }
 
   public submit(job: any): void {
-    job.user_id = this.tokenService.currentUserData.id;
+    this.tokenService.validateToken().subscribe(
+      (res: any) => {
+        job.user_id = JSON.parse(res._body).data.id;
+        this.submitJob(job);
+      },
+      (err: any) => {
+        this.snackBar.open('Unable to validate user token', 'Close', {
+          duration: 5000
+        });
+      }
+    );
+  }
+
+  private submitJob(job: any): void {
     this.jobsService.createJob(job).subscribe (
       (res: any) => {
         this.snackBar.open('You have successfully created a job', 'Close', {
