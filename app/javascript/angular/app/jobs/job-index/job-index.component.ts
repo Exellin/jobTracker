@@ -15,7 +15,7 @@ import templateString from './job-index.component.html';
 export class JobIndexComponent implements OnInit {
   public dataSource: BindDataTableSource | null;
   public jobs: any[];
-  private displayedColumns: string[] = ['title', 'company', 'status'];
+  private displayedColumns: string[] = ['title', 'company', 'status', 'actions'];
 
   constructor(
     private jobsService: JobsService,
@@ -45,6 +45,26 @@ export class JobIndexComponent implements OnInit {
       },
       (err: any) => {
         this.snackBar.open('Unable to retrieve jobs', 'Close', {
+          duration: 5000
+        });
+      }
+    );
+  }
+
+  private deleteJob(job: any): void {
+    this.jobsService.deleteJob(job.id).subscribe(
+      (res: any) => {
+        this.snackBar.open('Job successfully deleted', 'Close', {
+          duration: 5000
+        });
+        const index: number = this.jobs.findIndex((foundJob: any) => {
+          return foundJob.id === job.id;
+        });
+        this.jobs.splice(index, 1);
+        this.dataSource = new BindDataTableSource(this);
+      },
+      (err: any) => {
+        this.snackBar.open('Unable to delete job', 'Close', {
           duration: 5000
         });
       }

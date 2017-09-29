@@ -1,6 +1,5 @@
 module Api
   class JobsController < ApplicationController
-
     def index
       user = User.find(params[:user_id])
       render json: {
@@ -19,6 +18,11 @@ module Api
           status: 'error', data: job, errors: job.errors
         }, status: :unprocessable_entity
       end
+    end
+
+    def destroy
+      @job = Job.find(params[:id])
+      @job.destroy
     end
 
     private

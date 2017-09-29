@@ -1,18 +1,25 @@
 <div class='mat-elevation-z8'>
   <md-table #table [dataSource]='dataSource'>
     <ng-container mdColumnDef='title'>
-      <md-header-cell *mdHeaderCellDef> Title </md-header-cell>
-      <md-cell *mdCellDef='let job'> {{ job.title }} </md-cell>
+      <md-header-cell *mdHeaderCellDef>Title</md-header-cell>
+      <md-cell *mdCellDef='let job'>{{ job.title }}</md-cell>
     </ng-container>
 
     <ng-container mdColumnDef='company'>
-      <md-header-cell *mdHeaderCellDef> Company </md-header-cell>
-      <md-cell *mdCellDef='let job'> {{ job.company }} </md-cell>
+      <md-header-cell *mdHeaderCellDef>Company</md-header-cell>
+      <md-cell *mdCellDef='let job'>{{ job.company }}</md-cell>
     </ng-container>
 
     <ng-container mdColumnDef='status'>
-      <md-header-cell *mdHeaderCellDef> Status </md-header-cell>
-      <md-cell *mdCellDef='let job'> {{ job.status }} </md-cell>
+      <md-header-cell *mdHeaderCellDef>Status</md-header-cell>
+      <md-cell *mdCellDef='let job'>{{ job.status }}</md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef='actions'>
+      <md-header-cell *mdHeaderCellDef>Actions</md-header-cell>
+      <md-cell *mdCellDef='let job'>
+        <button md-raised-button color='warn' (click)='deleteJob(job)'>Delete</button>
+      </md-cell>
     </ng-container>
 
     <md-header-row *mdHeaderRowDef='displayedColumns'></md-header-row>

@@ -17,4 +17,8 @@ export class JobsService {
     searchParams.append('user_id', userId.toString());
     return this.http.get('api/jobs', { search: searchParams }).map((res: any) => res.json());
   }
+
+  public deleteJob(jobId: number): Observable<void> {
+    return this.http.delete(`api/jobs/${jobId}`).map((res: any) => {});
+  }
 }
