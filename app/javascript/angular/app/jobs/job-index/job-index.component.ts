@@ -16,6 +16,7 @@ export class JobIndexComponent implements OnInit {
   public dataSource: BindDataTableSource | null;
   public jobs: any[];
   private displayedColumns: string[] = ['title', 'company', 'status', 'actions'];
+  private job: any;
 
   constructor(
     private jobsService: JobsService,
@@ -71,6 +72,14 @@ export class JobIndexComponent implements OnInit {
         }
       );
     }
+  }
+
+  private showJob(job: any): void {
+    this.job = job;
+  }
+
+  private showTable(): void {
+    this.job = null;
   }
 }
 

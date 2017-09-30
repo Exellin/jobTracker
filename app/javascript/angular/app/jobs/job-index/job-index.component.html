@@ -1,4 +1,4 @@
-<div class='mat-elevation-z8'>
+<div *ngIf='!job' class='mat-elevation-z8'>
   <md-table #table [dataSource]='dataSource'>
     <ng-container mdColumnDef='title'>
       <md-header-cell *mdHeaderCellDef>Title</md-header-cell>
@@ -19,6 +19,7 @@
       <md-header-cell *mdHeaderCellDef>Actions</md-header-cell>
       <md-cell *mdCellDef='let job'>
         <button md-raised-button color='warn' (click)='deleteJob(job)'>Delete</button>
+        <button md-raised-button color='primary' (click)='showJob(job)'>Details</button>
       </md-cell>
     </ng-container>
 
@@ -26,3 +27,27 @@
     <md-row *mdRowDef='let row; columns: displayedColumns;'></md-row>
   </md-table>
 </div>
+
+
+<md-card *ngIf='job'>
+  <md-card-title>
+    {{ job.title }} <a *ngIf='job.application_url' href='{{ job.application_url }}'>{{ job.application_url }}</a>
+  </md-card-title>
+  <md-card-subtitle>
+    {{ job.company }} <a *ngIf='job.company_url' href='{{ job.company_url }}'>{{ job.company_url }}</a>
+  </md-card-subtitle>
+  <md-card-content>
+    <p>posted: {{ job.date_posted }}</p>
+    <p>applied: {{ job.date_applied }}</p>
+    <p>status: {{ job.status }}</p>
+    <h5>Point of Contact</h5>
+    <p>{{ job.point_of_contact }}</p>
+    <h5>Description</h5>
+    <p>{{ job.description }}</p>
+    <h5>Cover Letter</h5>
+    <p>{{ job.cover_letter }}</p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button (click)='showTable()' color='primary'>Return to Table View</button>
+  </md-card-actions>
+</md-card>

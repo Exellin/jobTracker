@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { JobsService } from './jobs.service';
@@ -21,6 +22,7 @@ import { SharedModule } from '../shared/shared.module';
     MatSelectModule,
     MatButtonModule,
     MatTableModule,
+    MatCardModule,
     SharedModule],
   providers: [
     JobsService
