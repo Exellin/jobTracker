@@ -21,4 +21,8 @@ export class JobsService {
   public deleteJob(jobId: number): Observable<void> {
     return this.http.delete(`api/jobs/${jobId}`).map((res: any) => {});
   }
+
+  public updateJob(job: any): Observable<void> {
+    return this.http.put(`api/jobs/${job.id}`, job).map((res: any) => {});
+  }
 }

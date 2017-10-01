@@ -49,5 +49,72 @@
   </md-card-content>
   <md-card-actions>
     <button md-button (click)='showTable()' color='primary'>Return to Table View</button>
+    <button md-button (click)='showEditForm()'>Edit</button>
   </md-card-actions>
 </md-card>
+
+<form *ngIf='isEditing' [formGroup]='editJobForm' (ngSubmit)='submitEditForm(editJobForm.value)'>
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Title of Job Position'"
+    [control]='editJobForm.controls.title'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Company Name'"
+    [control]='editJobForm.controls.company'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Company Url'"
+    [control]='editJobForm.controls.company_url'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Application Url'"
+    [control]='editJobForm.controls.application_url'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Point of Contact'"
+    [control]='editJobForm.controls.point_of_contact'>
+  </input-field>
+
+  <input-field
+    [format]="'datePicker'"
+    [type]="'text'"
+    [placeholder]="'Date Posted'"
+    [control]='editJobForm.controls.date_posted'>
+  </input-field>
+
+  <input-field
+    [format]="'datePicker'"
+    [type]="'text'"
+    [placeholder]="'Date Applied'"
+    [control]='editJobForm.controls.date_applied'>
+  </input-field>
+
+  <md-select placeholder='Status' [formControl]='editJobForm.controls.status' floatPlaceholder='always'>
+    <md-option *ngFor='let status of statuses' [value]='status.value'>
+      {{ status.viewValue }}
+    </md-option>
+  </md-select>
+
+  <input-field
+    [format]="'textArea'"
+    [placeholder]="'Description'"
+    [control]='editJobForm.controls.description'>
+  </input-field>
+
+  <input-field
+    [format]="'textArea'"
+    [placeholder]="'Cover letter'"
+    [control]='editJobForm.controls.cover_letter'>
+  </input-field>
+
+  <button md-raised-button type='submit' [disabled]='!editJobForm.valid'>Submit</button>
+</form>

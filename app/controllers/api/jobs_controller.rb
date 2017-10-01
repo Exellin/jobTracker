@@ -20,9 +20,22 @@ module Api
       end
     end
 
+    def update
+      job = Job.find(params[:id])
+      if job.update(job_params)
+        render json: {
+          status: 'success', data: job
+        }, status: :ok
+      else
+        render json: {
+          status: 'error', data: job, errors: job.errors
+        }, status: :unprocessable_entity
+      end
+    end
+
     def destroy
-      @job = Job.find(params[:id])
-      @job.destroy
+      job = Job.find(params[:id])
+      job.destroy
     end
 
     private
