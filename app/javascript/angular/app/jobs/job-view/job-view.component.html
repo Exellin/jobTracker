@@ -5,8 +5,8 @@
   {{ job.company.value }} <a *ngIf='job.company_url' href='{{ job.company_url }}'>{{ job.company_url.value }}</a>
 </md-card-subtitle>
 <md-card-content>
-  <p>posted: {{ job.date_posted.value }}</p>
-  <p>applied: {{ job.date_applied.value }}</p>
+  <p>posted: {{ job.date_posted.value | date:'fullDate' }}</p>
+  <p>applied: {{ job.date_applied.value | date:'fullDate' }}</p>
   <p>status: {{ job.status.value }}</p>
   <h5>Point of Contact</h5>
   <p>{{ job.point_of_contact.value }}</p>
