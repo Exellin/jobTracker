@@ -90,16 +90,6 @@ export class JobIndexComponent implements OnInit {
 
   private showJob(job: any): void {
     this.job = job;
-  }
-
-  private showTable(): void {
-    this.job = null;
-    this.isEditing = false;
-    this.editJobForm = null;
-  }
-
-  private showEditForm(): void {
-    this.isEditing = true;
 
     this.editJobForm = this.formBuilder.group({
       application_url: this.formBuilder.control(this.job.application_url),
@@ -113,6 +103,16 @@ export class JobIndexComponent implements OnInit {
       status: this.formBuilder.control(this.job.status),
       title: this.formBuilder.control(this.job.title)
     });
+  }
+
+  private showTable(): void {
+    this.job = null;
+    this.isEditing = false;
+    this.editJobForm = null;
+  }
+
+  private showEditForm(): void {
+    this.isEditing = true;
   }
 
   private submitEditForm(job: any): void {

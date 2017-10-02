@@ -28,25 +28,8 @@
   </md-table>
 </div>
 
-
 <md-card *ngIf='job'>
-  <md-card-title>
-    {{ job.title }} <a *ngIf='job.application_url' href='{{ job.application_url }}'>{{ job.application_url }}</a>
-  </md-card-title>
-  <md-card-subtitle>
-    {{ job.company }} <a *ngIf='job.company_url' href='{{ job.company_url }}'>{{ job.company_url }}</a>
-  </md-card-subtitle>
-  <md-card-content>
-    <p>posted: {{ job.date_posted }}</p>
-    <p>applied: {{ job.date_applied }}</p>
-    <p>status: {{ job.status }}</p>
-    <h5>Point of Contact</h5>
-    <p>{{ job.point_of_contact }}</p>
-    <h5>Description</h5>
-    <p>{{ job.description }}</p>
-    <h5>Cover Letter</h5>
-    <p>{{ job.cover_letter }}</p>
-  </md-card-content>
+  <job-view [job]='editJobForm.controls'></job-view>
   <md-card-actions>
     <button md-button (click)='showTable()' color='primary'>Return to Table View</button>
     <button md-button (click)='showEditForm()'>Edit</button>
