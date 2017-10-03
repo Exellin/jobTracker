@@ -4,8 +4,6 @@ class Job < ApplicationRecord
   validates :company_url, length: { maximum: 2048 }
   validates :application_url, length: { maximum: 2048 }
   validates :point_of_contact, length: { maximum: 255 }
-  validates :date_applied, presence: true, date: true
-  validates :date_posted, presence: true, date: true
   validates :cover_letter, length: { maximum: 3000 }
   validates :description, length: { maximum: 5000 }
   validates :status, presence: true
