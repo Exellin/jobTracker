@@ -6,12 +6,17 @@
 </md-card-subtitle>
 <md-card-content>
   <p>posted: {{ job.date_posted.value | date:'fullDate' }}</p>
+
   <p>applied: {{ job.date_applied.value | date:'fullDate' }}</p>
+
   <p>status: {{ job.status.value }}</p>
+
   <h5>Point of Contact</h5>
   <p>{{ job.point_of_contact.value }}</p>
+
   <h5>Description</h5>
   <p>{{ job.description.value }}</p>
+
   <h5>Cover Letter</h5>
   <p>{{ job.cover_letter.value }}</p>
 </md-card-content>

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatInputModule } from '@angular/material/input';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { InputFieldComponent } from './input-field/input-field.component';
@@ -17,8 +16,7 @@ import { InputFieldComponent } from './input-field/input-field.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule,
-    MatDatepickerModule
+    MatInputModule
   ]
 })
 
