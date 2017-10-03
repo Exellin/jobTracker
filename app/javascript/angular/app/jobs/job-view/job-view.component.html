@@ -5,9 +5,9 @@
   {{ job.company.value }} <a *ngIf='job.company_url' href='{{ job.company_url.value }}'>{{ job.company_url.value }}</a>
 </md-card-subtitle>
 <md-card-content>
-  <p>posted: {{ job.date_posted.value | date:'fullDate' }}</p>
+  <p>posted: <span *ngIf='validDate(job.date_posted.value) | async'>{{ job.date_posted.value | date:'fullDate' }}</span></p>
 
-  <p>applied: {{ job.date_applied.value | date:'fullDate' }}</p>
+  <p>applied: <span *ngIf='validDate(job.date_applied.value) | async'>{{ job.date_applied.value | date:'fullDate' }}</span></p>
 
   <p>status: {{ job.status.value }}</p>
 
