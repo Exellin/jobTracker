@@ -124,6 +124,11 @@ export class JobIndexComponent implements OnInit {
         this.snackBar.open('You have edited this job', 'Close', {
           duration: 5000
         });
+        const index: number = this.jobs.findIndex((foundJob: any) => {
+          return foundJob.id === job.id;
+        });
+        this.jobs[index] = job;
+        this.dataSource = new BindDataTableSource(this);
       },
       (err: any) => {
         const parsedErrors: string[] = JSON.parse(err._body).errors;
