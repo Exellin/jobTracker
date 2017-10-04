@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import templateString from './job-form.component.html';
+import './job-form.component.scss';
 
 @Component({
   selector: 'job-form',
