@@ -24,16 +24,6 @@ export class JobIndexComponent implements OnInit {
   private editJobForm: FormGroup;
   private createJobForm: FormGroup;
 
-  private statuses: Array<{value: string, viewValue: string}> = [
-    {value: 'discovered', viewValue: 'discovered'},
-    {value: 'applied', viewValue: 'applied'},
-    {value: 'followed_up', viewValue: 'followed up'},
-    {value: 'no_interview', viewValue: 'no interview'},
-    {value: 'interviewing', viewValue: 'interviewing'},
-    {value: 'no_offer_received', viewValue: 'no offer received'},
-    {value: 'offer_recieved', viewValue: 'offer recieved'}
-  ];
-
   constructor(
     private jobsService: JobsService,
     private tokenService: Angular2TokenService,

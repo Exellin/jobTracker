@@ -1,0 +1,59 @@
+<input-field
+  [type]="'text'"
+  [placeholder]="'Title of Job Position'"
+  [control]='jobForm.controls.title'>
+</input-field>
+
+<input-field
+  [type]="'text'"
+  [placeholder]="'Company Name'"
+  [control]='jobForm.controls.company'>
+</input-field>
+
+<input-field
+  [type]="'text'"
+  [placeholder]="'Company Url'"
+  [control]='jobForm.controls.company_url'>
+</input-field>
+
+<input-field
+  [type]="'text'"
+  [placeholder]="'Application Url'"
+  [control]='jobForm.controls.application_url'>
+</input-field>
+
+<input-field
+  [type]="'text'"
+  [placeholder]="'Point of Contact'"
+  [control]='jobForm.controls.point_of_contact'>
+</input-field>
+
+<input-field
+  [type]="'date'"
+  [placeholder]="'Date Posted'"
+  [control]='jobForm.controls.date_posted'>
+</input-field>
+
+<input-field
+  [type]="'date'"
+  [placeholder]="'Date Applied'"
+  [control]='jobForm.controls.date_applied'>
+</input-field>
+
+<md-select placeholder='Status' [formControl]='jobForm.controls.status' floatPlaceholder='always'>
+  <md-option *ngFor='let status of statuses' [value]='status.value'>
+    {{ status.viewValue }}
+  </md-option>
+</md-select>
+
+<input-field
+  [format]="'textArea'"
+  [placeholder]="'Description'"
+  [control]='jobForm.controls.description'>
+</input-field>
+
+<input-field
+  [format]="'textArea'"
+  [placeholder]="'Cover letter'"
+  [control]='jobForm.controls.cover_letter'>
+</input-field>

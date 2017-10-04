@@ -9,12 +9,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { JobsService } from './jobs.service';
 import { JobIndexComponent } from './job-index/job-index.component';
 import { JobViewComponent } from './job-view/job-view.component';
+import { JobFormComponent } from './job-form/job-form.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     JobIndexComponent,
-    JobViewComponent
+    JobViewComponent,
+    JobFormComponent
   ],
   imports: [
     CommonModule,
