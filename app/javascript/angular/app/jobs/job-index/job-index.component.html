@@ -1,4 +1,4 @@
-<div *ngIf='!job' class='mat-elevation-z8'>
+<div *ngIf='!job && !isCreating' class='mat-elevation-z8'>
   <md-table #table [dataSource]='dataSource'>
     <ng-container mdColumnDef='title'>
       <md-header-cell *mdHeaderCellDef>Title</md-header-cell>
@@ -26,6 +26,10 @@
     <md-header-row *mdHeaderRowDef='displayedColumns'></md-header-row>
     <md-row *mdRowDef='let row; columns: displayedColumns;'></md-row>
   </md-table>
+</div>
+
+<div *ngIf='!job && !isCreating' class='button-container'>
+  <button md-raised-button (click)='showCreateForm()' color='primary' class='main-center-button'>Create a job</button>
 </div>
 
 <md-card *ngIf='job'>
@@ -98,4 +102,75 @@
   </input-field>
 
   <button md-raised-button type='submit' [disabled]='!editJobForm.valid'>Submit</button>
+</form>
+
+<md-card *ngIf='isCreating'>
+  <job-view [job]='createJobForm.controls'></job-view>
+  <md-card-actions>
+    <button md-button (click)='showTable()' color='primary'>Return to Table View</button>
+  </md-card-actions>
+</md-card>
+
+<form *ngIf='isCreating' [formGroup]='createJobForm' (ngSubmit)='submitCreateForm(createJobForm.value)'>
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Title of Job Position'"
+    [control]='createJobForm.controls.title'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Company Name'"
+    [control]='createJobForm.controls.company'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Company Url'"
+    [control]='createJobForm.controls.company_url'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Application Url'"
+    [control]='createJobForm.controls.application_url'>
+  </input-field>
+
+  <input-field
+    [type]="'text'"
+    [placeholder]="'Point of Contact'"
+    [control]='createJobForm.controls.point_of_contact'>
+  </input-field>
+
+  <input-field
+    [type]="'date'"
+    [placeholder]="'Date Posted'"
+    [control]='createJobForm.controls.date_posted'>
+  </input-field>
+
+  <input-field
+    [type]="'date'"
+    [placeholder]="'Date Applied'"
+    [control]='createJobForm.controls.date_applied'>
+  </input-field>
+
+  <md-select placeholder='Status' [formControl]='createJobForm.controls.status' floatPlaceholder='always'>
+    <md-option *ngFor='let status of statuses' [value]='status.value'>
+      {{ status.viewValue }}
+    </md-option>
+  </md-select>
+
+  <input-field
+    [format]="'textArea'"
+    [placeholder]="'Description'"
+    [control]='createJobForm.controls.description'>
+  </input-field>
+
+  <input-field
+    [format]="'textArea'"
+    [placeholder]="'Cover letter'"
+    [control]='createJobForm.controls.cover_letter'>
+  </input-field>
+
+  <button md-raised-button type='submit' [disabled]='!createJobForm.valid'>Submit</button>
 </form>

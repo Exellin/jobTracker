@@ -8,6 +8,7 @@ import 'rxjs/add/observable/of';
 
 import { JobsService } from '../jobs.service';
 import templateString from './job-index.component.html';
+import './job-index.component.scss';
 
 @Component({
   template: templateString
@@ -19,7 +20,9 @@ export class JobIndexComponent implements OnInit {
   private displayedColumns: string[] = ['title', 'company', 'status', 'actions'];
   private job: any;
   private isEditing: boolean = false;
+  private isCreating: boolean = false;
   private editJobForm: FormGroup;
+  private createJobForm: FormGroup;
 
   private statuses: Array<{value: string, viewValue: string}> = [
     {value: 'discovered', viewValue: 'discovered'},
@@ -108,6 +111,7 @@ export class JobIndexComponent implements OnInit {
   private showTable(): void {
     this.job = null;
     this.isEditing = false;
+    this.isCreating = false;
     this.editJobForm = null;
   }
 
@@ -138,6 +142,58 @@ export class JobIndexComponent implements OnInit {
           }
         }
         this.editJobForm.setErrors(parsedErrors);
+      }
+    );
+  }
+
+  private showCreateForm(): void {
+    this.isCreating = true;
+
+    this.createJobForm = this.formBuilder.group({
+      application_url: this.formBuilder.control(''),
+      company: this.formBuilder.control(''),
+      company_url: this.formBuilder.control(''),
+      cover_letter: this.formBuilder.control(''),
+      date_applied: this.formBuilder.control(''),
+      date_posted: this.formBuilder.control(''),
+      description: this.formBuilder.control(''),
+      point_of_contact: this.formBuilder.control(''),
+      status: this.formBuilder.control('discovered'),
+      title: this.formBuilder.control('')
+    });
+  }
+
+  private submitCreateForm(job: any): void {
+    this.tokenService.validateToken().subscribe(
+      (res: any) => {
+        job.user_id = JSON.parse(res._body).data.id;
+        this.submitJob(job);
+      },
+      (err: any) => {
+        this.snackBar.open('Unable to validate user token', 'Close', {
+          duration: 5000
+        });
+      }
+    );
+  }
+
+  private submitJob(job: any): void {
+    this.jobsService.createJob(job).subscribe (
+      (res: any) => {
+        this.snackBar.open('You have successfully created a job', 'Close', {
+          duration: 5000
+        });
+        this.jobs.push(res.data);
+        this.dataSource = new BindDataTableSource(this);
+      },
+      (err: any) => {
+        const parsedErrors: string[] = JSON.parse(err._body).errors;
+        for (const attribute in this.createJobForm.controls) {
+          if (parsedErrors[attribute]) {
+            this.createJobForm.controls[attribute].setErrors(parsedErrors[attribute]);
+          }
+        }
+        this.createJobForm.setErrors(parsedErrors);
       }
     );
   }

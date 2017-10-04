@@ -3,9 +3,6 @@
     Job Tracker
   </a>
   <span class='fill-remaining-space'></span>
-  <a md-button [routerLinkActive]="['active']" [routerLinkActiveOptions]='{exact:true}' routerLink = '/jobs/new' *ngIf='isLoggedIn()'>
-    Create a Job
-  </a>
   <a md-button [routerLinkActive]="['active']" [routerLinkActiveOptions]='{exact:true}' routerLink = '/jobs/' *ngIf='isLoggedIn()'>
     Jobs
   </a>
