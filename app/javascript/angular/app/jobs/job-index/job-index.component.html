@@ -32,10 +32,15 @@
   <button md-raised-button (click)='showCreateForm()' color='primary' class='main-center-button'>Create a job</button>
 </div>
 
-<form *ngIf='isEditing' [formGroup]='editJobForm' (ngSubmit)='submitEditForm(editJobForm.value)'>
-  <job-form [jobForm]='editJobForm'></job-form>
-  <button md-raised-button type='submit' color='primary' [disabled]='!editJobForm.valid'>Submit</button>
-</form>
+<md-card *ngIf='isEditing'>
+  <md-card-title>Edit this job</md-card-title>
+  <md-card-content>
+    <form *ngIf='isEditing' [formGroup]='editJobForm' (ngSubmit)='submitEditForm(editJobForm.value)'>
+      <job-form [jobForm]='editJobForm'></job-form>
+      <button md-raised-button type='submit' color='primary' [disabled]='!editJobForm.valid'>Submit</button>
+    </form>
+  </md-card-content>
+</md-card>
 
 <md-card *ngIf='job'>
   <job-view [job]='editJobForm.controls'></job-view>
@@ -45,11 +50,16 @@
   </md-card-actions>
 </md-card>
 
-<form *ngIf='createJobForm' [formGroup]='createJobForm' (ngSubmit)='submitCreateForm(createJobForm.value)'>
-  <job-form [jobForm]='createJobForm'></job-form>
-  <button md-raised-button type='submit' color='primary' [disabled]='!createJobForm.valid'>Submit</button>
-  <button md-button type='button' (click)='showTable()' color='warn'>Cancel</button>
-</form>
+<md-card *ngIf='createJobForm'>
+  <md-card-title>Create a job</md-card-title>
+  <md-card-content>
+    <form [formGroup]='createJobForm' (ngSubmit)='submitCreateForm(createJobForm.value)'>
+      <job-form [jobForm]='createJobForm'></job-form>
+      <button md-raised-button type='submit' color='primary' [disabled]='!createJobForm.valid'>Submit</button>
+      <button md-button type='button' (click)='showTable()' color='warn'>Cancel</button>
+    </form>
+  </md-card-content>
+</md-card>
 
 <md-card *ngIf='createJobForm'>
   <job-view [job]='createJobForm.controls'></job-view>
