@@ -20,7 +20,6 @@ export class JobIndexComponent implements OnInit {
   private displayedColumns: string[] = ['title', 'company', 'status', 'actions'];
   private job: any;
   private isEditing: boolean = false;
-  private isCreating: boolean = false;
   private editJobForm: FormGroup;
   private createJobForm: FormGroup;
 
@@ -101,8 +100,8 @@ export class JobIndexComponent implements OnInit {
   private showTable(): void {
     this.job = null;
     this.isEditing = false;
-    this.isCreating = false;
     this.editJobForm = null;
+    this.createJobForm = null;
   }
 
   private showEditForm(): void {
@@ -137,8 +136,6 @@ export class JobIndexComponent implements OnInit {
   }
 
   private showCreateForm(): void {
-    this.isCreating = true;
-
     this.createJobForm = this.formBuilder.group({
       application_url: this.formBuilder.control(''),
       company: this.formBuilder.control(''),
