@@ -48,7 +48,7 @@
 <form *ngIf='createJobForm' [formGroup]='createJobForm' (ngSubmit)='submitCreateForm(createJobForm.value)'>
   <job-form [jobForm]='createJobForm'></job-form>
   <button md-raised-button type='submit' color='primary' [disabled]='!createJobForm.valid'>Submit</button>
-  <button md-button (click)='showTable()' color='warn'>Cancel</button>
+  <button md-button type='button' (click)='showTable()' color='warn'>Cancel</button>
 </form>
 
 <md-card *ngIf='createJobForm'>
