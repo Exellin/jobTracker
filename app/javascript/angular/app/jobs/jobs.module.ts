@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MarkdownModule } from 'angular2-markdown';
 
 import { JobsService } from './jobs.service';
 import { JobIndexComponent } from './job-index/job-index.component';
@@ -21,6 +22,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    MarkdownModule.forRoot(),
     MatSelectModule,
     MatButtonModule,
     MatTableModule,

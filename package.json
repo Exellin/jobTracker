@@ -16,6 +16,7 @@
     "@angular/platform-browser": "^4.3.0",
     "@angular/platform-browser-dynamic": "^4.3.0",
     "@angular/router": "^4.3.1",
+    "angular2-markdown": "^1.6.0",
     "angular2-token": "^0.2.0-beta.12",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.25.0",
