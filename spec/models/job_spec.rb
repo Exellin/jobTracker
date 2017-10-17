@@ -78,14 +78,14 @@ RSpec.describe Job do
   end
 
   describe '#date_applied' do
-    it 'is invalid when nil' do
-      expect(FactoryGirl.build(:job, date_applied: nil)).not_to be_valid
+    it 'is valid when nil' do
+      expect(FactoryGirl.build(:job, date_applied: nil)).to be_valid
     end
   end
 
   describe '#date_posted' do
-    it 'is invalid when nil' do
-      expect(FactoryGirl.build(:job, date_posted: nil)).not_to be_valid
+    it 'is valid when nil' do
+      expect(FactoryGirl.build(:job, date_posted: nil)).to be_valid
     end
   end
 
