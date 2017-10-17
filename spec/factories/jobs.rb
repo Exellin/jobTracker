@@ -9,6 +9,7 @@ FactoryGirl.define do
     date_posted { Faker::Date.between(7.days.ago, 2.days.ago) }
     cover_letter { Faker::Lorem.paragraph }
     description { Faker::Lorem.paragraph }
+    feedback { Faker::Lorem.paragraph }
     association :user, factory: :user
   end
 end

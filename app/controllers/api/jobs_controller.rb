@@ -42,8 +42,8 @@ module Api
 
     def job_params
       params.require(:job).permit(
-        :title, :company, :company_url, :application_url, :point_of_contact, :date_applied,
-        :date_posted, :status, :cover_letter, :description, :user_id
+        :title, :company, :company_url, :application_url, :point_of_contact, :feedback,
+        :date_applied, :date_posted, :status, :cover_letter, :description, :user_id
       )
     end
   end

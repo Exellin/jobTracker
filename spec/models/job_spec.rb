@@ -153,4 +153,18 @@ RSpec.describe Job do
       expect(job.user).to eq(user)
     end
   end
+
+  describe '#feedback' do
+    it 'is valid when nil' do
+      expect(FactoryGirl.build(:job, feedback: nil)).to be_valid
+    end
+
+    it 'is valid when under 256 characters' do
+      expect(FactoryGirl.build(:job, feedback: Faker::Lorem.characters(255))).to be_valid
+    end
+
+    it 'is invalid when over 255 characters' do
+      expect(FactoryGirl.build(:job, feedback: Faker::Lorem.characters(256))).not_to be_valid
+    end
+  end
 end

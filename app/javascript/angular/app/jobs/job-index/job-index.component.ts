@@ -91,6 +91,7 @@ export class JobIndexComponent implements OnInit {
       date_applied: this.formBuilder.control(this.job.date_applied),
       date_posted: this.formBuilder.control(this.job.date_posted),
       description: this.formBuilder.control(this.job.description),
+      feedback: this.formBuilder.control(this.job.feedback),
       point_of_contact: this.formBuilder.control(this.job.point_of_contact),
       status: this.formBuilder.control(this.job.status),
       title: this.formBuilder.control(this.job.title)
@@ -144,6 +145,7 @@ export class JobIndexComponent implements OnInit {
       date_applied: this.formBuilder.control(''),
       date_posted: this.formBuilder.control(''),
       description: this.formBuilder.control(''),
+      feedback: this.formBuilder.control(''),
       point_of_contact: this.formBuilder.control(''),
       status: this.formBuilder.control('discovered'),
       title: this.formBuilder.control('')

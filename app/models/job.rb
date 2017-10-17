@@ -7,6 +7,7 @@ class Job < ApplicationRecord
   validates :cover_letter, length: { maximum: 3000 }
   validates :description, length: { maximum: 5000 }
   validates :status, presence: true
+  validates :feedback, length: { maximum: 255 }
 
   enum status: [:discovered, :applied, :followed_up, :no_interview,
                 :interviewing, :no_offer_received, :offer_recieved]
