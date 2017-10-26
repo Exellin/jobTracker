@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   namespace 'api' do
     resources :jobs, only: [:create, :index, :destroy, :update]
+    resources :resumes, only: [:create]
   end
   get '*unmatched_route', to: 'pages#home'
 end

@@ -22,6 +22,7 @@ export class JobIndexComponent implements OnInit {
   private isEditing: boolean = false;
   private editJobForm: FormGroup;
   private createJobForm: FormGroup;
+  private currentUserId: number;
 
   constructor(
     private jobsService: JobsService,
@@ -33,8 +34,8 @@ export class JobIndexComponent implements OnInit {
   public ngOnInit(): void {
     this.tokenService.validateToken().subscribe(
       (res: any) => {
-        const userId: number = JSON.parse(res._body).data.id;
-        this.getJobs(userId);
+        this.currentUserId = JSON.parse(res._body).data.id;
+        this.getJobs(this.currentUserId);
       },
       (err: any) => {
         this.snackBar.open('Unable to validate user token', 'Close', {

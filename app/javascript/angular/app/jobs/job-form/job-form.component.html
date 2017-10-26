@@ -52,6 +52,11 @@
     [placeholder]="'Feedback'"
     [control]='jobForm.controls.feedback'>
   </input-field>
+
+  <div>
+    <input type='file' #fileInput>
+    <button type='button' (click)='uploadResume()'>Upload</button>
+  </div>
 </div>
 
 <input-field

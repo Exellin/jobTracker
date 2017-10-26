@@ -7,12 +7,18 @@ end
 
 # Use Angular Rails CSRF to create valid authenticity tokens from Angular
 gem 'angular_rails_csrf'
+# Use aws for file storage
+gem 'aws-sdk', '~> 2.3.0'
 # Dependency for devise_token_auth
 gem 'devise'
 # Use Devise_token_auth as the authentication solution
 gem 'devise_token_auth'
+# Use figaro to hold environment variables
+gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
+# Use paperclip for file attachments
+gem 'paperclip'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server

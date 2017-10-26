@@ -25,4 +25,8 @@ export class JobsService {
   public updateJob(job: any): Observable<void> {
     return this.http.put(`api/jobs/${job.id}`, job).map((res: any) => {});
   }
+
+  public uploadResume(resume: any): Observable<void> {
+    return this.http.post('api/resumes', resume).map((res: any) => res.json());
+  }
 }

@@ -36,7 +36,7 @@
   <md-card-title>Edit this job</md-card-title>
   <md-card-content>
     <form *ngIf='isEditing' [formGroup]='editJobForm' (ngSubmit)='submitEditForm(editJobForm.value)'>
-      <job-form [jobForm]='editJobForm'></job-form>
+      <job-form [jobForm]='editJobForm' [currentUserId]='currentUserId'></job-form>
       <button md-raised-button type='submit' color='primary' [disabled]='!editJobForm.valid'>Submit</button>
       <button md-button type='button' (click)='showTable()' color='warn'>Cancel</button>
     </form>
@@ -55,7 +55,7 @@
   <md-card-title>Create a job</md-card-title>
   <md-card-content>
     <form [formGroup]='createJobForm' (ngSubmit)='submitCreateForm(createJobForm.value)'>
-      <job-form [jobForm]='createJobForm'></job-form>
+      <job-form [jobForm]='createJobForm' [currentUserId]='currentUserId'></job-form>
       <button md-raised-button type='submit' color='primary' [disabled]='!createJobForm.valid'>Submit</button>
       <button md-button type='button' (click)='showTable()' color='warn'>Cancel</button>
     </form>

@@ -1,0 +1,15 @@
+class Resume < ApplicationRecord
+  belongs_to :user
+
+  has_attached_file :file, storage: :s3, s3_credentials: proc { |a| a.instance.s3_credentials }
+  validates_attachment_content_type :file, content_type: ['application/pdf']
+
+  def s3_credentials
+    {
+      bucket: ENV['S3_BUCKET_NAME'],
+      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['AWS_SECRET_KEY'],
+      s3_region: ENV['AWS_REGION']
+    }
+  end
+end

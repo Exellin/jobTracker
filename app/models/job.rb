@@ -13,6 +13,7 @@ class Job < ApplicationRecord
                 :interviewing, :no_offer_received, :offer_recieved]
 
   belongs_to :user
+  belongs_to :resume, optional: true
 
   after_initialize :init
 

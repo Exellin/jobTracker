@@ -6,6 +6,7 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
 
   has_many :jobs
+  has_many :resumes
 
   before_create :skip_confirmation
 
