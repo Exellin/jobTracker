@@ -1,5 +1,12 @@
 module Api
   class ResumesController < ApplicationController
+    def index
+      user = User.find(params[:user_id])
+      render json: {
+        status: 'success', data: user.resumes
+      }, status: :ok
+    end
+
     def create
       resume = Resume.new(resume_params)
       if resume.save

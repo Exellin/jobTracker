@@ -4,6 +4,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MarkdownModule } from 'angular2-markdown';
 
@@ -27,6 +28,7 @@ import { SharedModule } from '../shared/shared.module';
     MatButtonModule,
     MatTableModule,
     MatCardModule,
+    MatProgressBarModule,
     SharedModule],
   providers: [
     JobsService

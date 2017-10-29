@@ -29,4 +29,10 @@ export class JobsService {
   public uploadResume(resume: any): Observable<void> {
     return this.http.post('api/resumes', resume).map((res: any) => res.json());
   }
+
+  public indexResumes(userId: number): Observable<void> {
+    const searchParams: URLSearchParams = new URLSearchParams();
+    searchParams.append('user_id', userId.toString());
+    return this.http.get('api/resumes', { search: searchParams }).map((res: any) => res.json());
+  }
 }

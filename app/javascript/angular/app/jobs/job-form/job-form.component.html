@@ -46,18 +46,13 @@
     [placeholder]="'Point of Contact'"
     [control]='jobForm.controls.point_of_contact'>
   </input-field>
-
-  <input-field
-    [type]="'text'"
-    [placeholder]="'Feedback'"
-    [control]='jobForm.controls.feedback'>
-  </input-field>
-
-  <div>
-    <input type='file' #fileInput>
-    <button type='button' (click)='uploadResume()'>Upload</button>
-  </div>
 </div>
+
+<input-field
+  [format]="'textArea'"
+  [placeholder]="'Feedback'"
+  [control]='jobForm.controls.feedback'>
+</input-field>
 
 <input-field
   [format]="'textArea'"
@@ -70,3 +65,21 @@
   [placeholder]="'Cover letter'"
   [control]='jobForm.controls.cover_letter'>
 </input-field>
+
+<div class='col-2'>
+  <md-select placeholder='Resume (must be pdf)' [formControl]='jobForm.controls.resume_id' floatPlaceholder='always' [(ngModel)]='selectedResumeId'>
+    <md-option *ngFor='let resume of resumes' [value]='resume.id'>
+      {{ resume.file_file_name }}
+    </md-option>
+  </md-select>
+
+  <div>
+    <input type='file' #fileInput>
+    <button md-raised-button [disabled]='this.uploading' type='button' color='accent' (click)='uploadResume()'>Upload</button>
+    <md-progress-bar
+      [color]='primary'
+      [mode]='mode'
+      [value]='progressValue'>
+    </md-progress-bar>
+  </div>
+</div>
