@@ -38,6 +38,7 @@ export class JobFormComponent implements OnInit {
 
   public ngOnInit(): void {
     this.getResumes(this.currentUserId);
+    this.selectedResumeId = this.jobForm.controls.resume_id.value;
   }
 
   private getResumes(userId: number): void {
