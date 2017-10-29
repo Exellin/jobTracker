@@ -1,7 +1,13 @@
 class Resume < ApplicationRecord
   belongs_to :user
 
-  has_attached_file :file, storage: :s3, s3_credentials: proc { |a| a.instance.s3_credentials }
+  has_attached_file :file,
+    storage: :s3,
+    url: ':s3_domain_url',
+    path: 'file/:id/:filename',
+    s3_credentials: proc { |a| a.instance.s3_credentials },
+    s3_host_name: 's3.amazonaws.com'
+
   validates_attachment_content_type :file, content_type: ['application/pdf']
 
   def s3_credentials

@@ -35,4 +35,8 @@ export class JobsService {
     searchParams.append('user_id', userId.toString());
     return this.http.get('api/resumes', { search: searchParams }).map((res: any) => res.json());
   }
+
+  public getResumeDownloadUrl(resumeId: number): Observable<void> {
+    return this.http.get(`/api/resumes/${resumeId}/download_url`).map((res: any) => res.json());
+  }
 }

@@ -20,6 +20,17 @@ module Api
       end
     end
 
+    def download_url
+      resume = Resume.find(params[:id])
+      render json: {
+        status: 'success',
+        data: {
+          resume: resume,
+          download_url: resume.file.expiring_url(10)
+        }
+      }, status: :ok
+    end
+
     private
 
     def resume_params

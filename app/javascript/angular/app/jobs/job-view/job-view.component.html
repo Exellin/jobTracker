@@ -20,4 +20,9 @@
 
   <h4>Cover Letter</h4>
   <markdown>{{ job.cover_letter.value }}</markdown>
+
+  <ng-container *ngIf='resume'>
+    <p><strong>Resume:</strong> {{ resume.file_file_name }}</p>
+    <a md-raised-button href='{{ resumeDownloadUrl }}'>View Resume</a>
+  </ng-container>
 </md-card-content>
