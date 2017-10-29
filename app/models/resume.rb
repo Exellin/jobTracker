@@ -6,7 +6,8 @@ class Resume < ApplicationRecord
     url: ':s3_domain_url',
     path: 'file/:id/:filename',
     s3_credentials: proc { |a| a.instance.s3_credentials },
-    s3_host_name: 's3.amazonaws.com'
+    s3_host_name: 's3.amazonaws.com',
+    s3_permissions: :private
 
   validates_attachment_content_type :file, content_type: ['application/pdf']
 

@@ -26,7 +26,7 @@ module Api
         status: 'success',
         data: {
           resume: resume,
-          download_url: resume.file.expiring_url(10)
+          download_url: resume.file.expiring_url(600)
         }
       }, status: :ok
     end
